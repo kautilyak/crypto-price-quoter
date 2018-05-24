@@ -17,7 +17,7 @@ try{
 		'method': 'GET',
 		'hostname': 'rest.coinapi.io',
 		'path': `/v1/exchangerate/${asset_id_base}/${asset_id_quote}`,
-		'headers': {'X-CoinAPI-Key': 'HERE'} // API KEY HERE TOO IF USING OPTIONS
+		'headers': {'X-CoinAPI-Key': 'KEY HERE'} // API KEY HERE TOO IF USING OPTIONS
 	};
 
 	//url variable for https.get() method.
@@ -30,8 +30,8 @@ try{
 		
 		response.on('end', ()=> {
 			jsonData = JSON.parse(body);
-			var quote = `Crypto : ${jsonData.asset_id_base.green} \nTime : ${jsonData.time} \nPrice : ${jsonData.rate} ${jsonData.asset_id_quote}`;
-			console.log(quote);
+			var quote = `Crypto : ${colors.green(jsonData.asset_id_base)} \nTime : ${jsonData.time} \nPrice : ${colors.cyan(jsonData.rate)} ${jsonData.asset_id_quote}`;
+			console.log(colors.bold(quote));
 		});
 	});
 } catch (error) {
