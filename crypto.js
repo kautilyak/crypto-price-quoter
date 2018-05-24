@@ -10,14 +10,14 @@ try{
 	let body = '';
 
 	// Input your API Key (SECRET) here.
-	const apikey = '6EB234D1-03F4-4E48-B9EA-7B6B8748A684'; // API KEY HERE
+	const apikey = 'KEY HERE'; // API KEY HERE
 
 	// Set the options for https request. Only if using https.request method!
 	var options =  {
 		'method': 'GET',
 		'hostname': 'rest.coinapi.io',
 		'path': `/v1/exchangerate/${asset_id_base}/${asset_id_quote}`,
-		'headers': {'X-CoinAPI-Key': '6EB234D1-03F4-4E48-B9EA-7B6B8748A684'} // API KEY HERE TOO IF USING OPTIONS
+		'headers': {'X-CoinAPI-Key': 'HERE'} // API KEY HERE TOO IF USING OPTIONS
 	};
 
 	//url variable for https.get() method.
