@@ -38,6 +38,6 @@ try{
 	if(error.message == "Cannot read property 'toUpperCase' of undefined"){
 		console.log('Please Specify second parameter');
 	} else {
-		throw error;
+		console.log(error.message);
 	}
 }
