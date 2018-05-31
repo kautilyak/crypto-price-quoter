@@ -6,6 +6,7 @@ try{
 	// Get the input params and store in two vars . Second one (optional).
 	var asset_id_base = process.argv.slice(2)[0].toUpperCase();
 	var asset_id_quote = process.argv.slice(2)[1].toUpperCase();
+	var ask_rate;
 
 	let body = '';
 
@@ -30,7 +31,13 @@ try{
 		
 		response.on('end', ()=> {
 			jsonData = JSON.parse(body);
-			var quote = `Crypto : ${colors.green(jsonData.asset_id_base)} \nTime : ${jsonData.time} \nPrice : ${colors.cyan(jsonData.rate)} ${jsonData.asset_id_quote}`;
+            if(asset_id_quote == 'USD') {
+                ask_rate = Math.round(jsonData.rate);
+            }
+            else {
+                ask_rate = jsonData.rate;
+            }
+			var quote = `Crypto : ${colors.green(jsonData.asset_id_base)} \nTime : ${jsonData.time} \nPrice : ${colors.cyan(ask_rate)} ${jsonData.asset_id_quote}`;
 			console.log(colors.bold(quote));
 		});
 	});
